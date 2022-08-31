@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_provider/res/components/round_button.dart';
 import 'package:flutter_mvvm_provider/utils/utils.dart';
+import 'package:flutter_mvvm_provider/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -31,6 +33,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final _authViewModel = Provider.of<AuthViewModel>(context);
     final height = MediaQuery.of(context).size.height * 1;
 
     return Scaffold(
@@ -81,6 +84,7 @@ class _LoginViewState extends State<LoginView> {
               SizedBox(height: height * 0.085),
               RoundButton(
                 title: "Login",
+                loading: _authViewModel.loading,
                 onPress: () {
                   if (_emailController.text.isEmpty) {
                     Utils.errorMessage("Please enter email", context);
@@ -90,7 +94,11 @@ class _LoginViewState extends State<LoginView> {
                     Utils.errorMessage(
                         "Password length must be greater than 8", context);
                   } else {
-                    print("API Hit");
+                    Map data = {
+                      'email': _emailController.text,
+                      'password': _passwordController.text
+                    };
+                    _authViewModel.loginApi(data, context);
                   }
                 },
               ),
