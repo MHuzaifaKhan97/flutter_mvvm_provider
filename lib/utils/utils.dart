@@ -2,6 +2,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
+  static double averageRating(List<int> ratings) {
+    var averageRating = 0;
+    for (int i = 0; i < ratings.length; i++) {
+      averageRating = averageRating + ratings[i];
+    }
+    return double.parse((averageRating / ratings.length).toStringAsFixed(2));
+  }
+
   static void fieldFocusChanged(BuildContext context,
       FocusNode currentFocusNode, FocusNode nextFocusNode) {
     currentFocusNode.unfocus();
