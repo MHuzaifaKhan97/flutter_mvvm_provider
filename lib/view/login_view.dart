@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_provider/res/components/round_button.dart';
+import 'package:flutter_mvvm_provider/utils/routes/routes_name.dart';
 import 'package:flutter_mvvm_provider/utils/utils.dart';
 import 'package:flutter_mvvm_provider/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
@@ -111,6 +112,14 @@ class _LoginViewState extends State<LoginView> {
                     };
                     _authViewModel.loginApi(data, context);
                   }
+                },
+              ),
+              const SizedBox(height: 16),
+              RoundButton(
+                title: "Sign Up",
+                inverse: true,
+                onPress: () {
+                  Navigator.pushNamed(context, RoutesName.signup);
                 },
               ),
             ],

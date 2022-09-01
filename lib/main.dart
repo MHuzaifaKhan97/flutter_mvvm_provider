@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_provider/res/color.dart';
 import 'package:flutter_mvvm_provider/utils/routes/routes.dart';
 import 'package:flutter_mvvm_provider/utils/routes/routes_name.dart';
 import 'package:flutter_mvvm_provider/view_model/auth_view_model.dart';
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter MVVM',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
+
+        theme:
+            ThemeData(appBarTheme: AppBarTheme(color: AppColors.primaryColor)),
         // home: const LoginScreen(),
         initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,

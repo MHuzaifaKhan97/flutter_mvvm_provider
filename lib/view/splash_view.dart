@@ -20,10 +20,30 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 115, 30, 30),
       body: Center(
-          child: Text(
-        "Splash Screen",
-        style: Theme.of(context).textTheme.headline4,
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text(
+            "Splash Screen",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            "Flutter with MVVM Architecture",
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.4),
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       )),
     );
   }

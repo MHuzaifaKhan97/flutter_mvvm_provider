@@ -21,6 +21,13 @@ class _SignUpViewState extends State<SignUpView> {
   FocusNode _passwordNode = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+    _emailController.text = "eve.holt@reqres.in";
+    _passwordController.text = "pistol";
+  }
+
+  @override
   void dispose() {
     super.dispose();
 
@@ -103,12 +110,14 @@ class _SignUpViewState extends State<SignUpView> {
                   }
                 },
               ),
-              SizedBox(height: height * 0.02),
-              InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, RoutesName.login);
-                  },
-                  child: Text("Already have account? Sign In"))
+              const SizedBox(height: 16),
+              RoundButton(
+                title: "Login",
+                inverse: true,
+                onPress: () {
+                  Navigator.pushNamed(context, RoutesName.login);
+                },
+              ),
             ],
           ),
         ));
