@@ -20,6 +20,13 @@ class _LoginViewState extends State<LoginView> {
   FocusNode _passwordNode = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+    _emailController.text = "eve.holt@reqres.in";
+    _passwordController.text = "cityslicka";
+  }
+
+  @override
   void dispose() {
     super.dispose();
 
@@ -94,6 +101,10 @@ class _LoginViewState extends State<LoginView> {
                     Utils.errorMessage(
                         "Password length must be greater than 8", context);
                   } else {
+                    // Map data = {
+                    //   'email': _emailController.text,
+                    //   'password': _passwordController.text
+                    // };
                     Map data = {
                       'email': _emailController.text,
                       'password': _passwordController.text
